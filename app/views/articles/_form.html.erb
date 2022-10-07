@@ -1,0 +1,25 @@
+<%# form_with helper method instantiates a form builder %>
+<%= form_with model: article do |form| %>
+    <div>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+        <%#  full_messages_for method returns an array of user-friendly error messages for a specified attribute %>
+        <% article.errors.full_messages_for(:title).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :body %><br>
+        <%= form.text_field :body %>
+        <% article.errors.full_messages_for(:title).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <br>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
